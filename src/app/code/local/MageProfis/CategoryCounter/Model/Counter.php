@@ -31,9 +31,9 @@ class MageProfis_CategoryCounter_Model_Counter {
 
         $resource = Mage::getResourceModel('catalog/category');
 
-        for ($i = 0; $i <= count($data); $i++) {
-            $_category_id = $data[$i]['category_id'];
-            $_category_view = $data[$i]['views'];
+        foreach ($data as $info) {
+            $_category_id = $info['category_id'];
+            $_category_view = $info['views'];
 
             $_category = Mage::getModel('catalog/category')
                     ->load($_category_id);
