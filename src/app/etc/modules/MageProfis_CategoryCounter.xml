@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MageProfis_CategoryCounter>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <MageProfis_ChildrenCategories />
+            </depends>
+        </MageProfis_CategoryCounter>
+    </modules>
+    <frontend>
+        <category>
+            <collection>
+                <attributes>
+                    <category_position_custom /> 
+                </attributes>
+            </collection>
+        </category>
+    </frontend>
+</config>
