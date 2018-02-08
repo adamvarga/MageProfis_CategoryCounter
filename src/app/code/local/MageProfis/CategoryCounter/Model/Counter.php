@@ -41,10 +41,18 @@ class MageProfis_CategoryCounter_Model_Counter {
             $_category->setData('category_position_custom', $_category_view);
             $resource->saveAttribute($_category, 'category_position_custom');
         }
+        $this->clearCache();
     }
 
     public function cleanTable() {
         return $this->getResource("truncate table mp_categorycounter_views;");
+    }
+
+    public function clearCache() {
+        $allTypes = Mage::app()->useCache();
+        foreach ($allTypes as $type => $cache) {
+            Mage::app()->getCacheInstance()->cleanType($type);
+        }
     }
 
 }
