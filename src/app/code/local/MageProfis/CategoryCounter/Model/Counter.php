@@ -12,7 +12,7 @@ class MageProfis_CategoryCounter_Model_Counter {
 
         $controller = $observer->getEvent()->getControllerAction();
         $request = $controller->getRequest();
-        $category_id = $request->getParam('id');
+        $category_id = (int) $request->getParam('id');
 
         if ($category_id) {
             return $this->getResource("INSERT INTO mp_categorycounter_views (category_id, views) VALUES (" . $category_id . ", 1) ON DUPLICATE KEY UPDATE views=views+1; ");
