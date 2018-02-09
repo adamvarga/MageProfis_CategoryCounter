@@ -32,14 +32,17 @@ class MageProfis_CategoryCounter_Model_Counter {
         $resource = Mage::getResourceModel('catalog/category');
 
         foreach ($data as $info) {
-            $_category_id = $info['category_id'];
+            $_category_id = (int) $info['category_id'];
             $_category_view = $info['views'];
 
+            
             $_category = Mage::getModel('catalog/category')
                     ->load($_category_id);
-
-            $_category->setData('category_position_custom', $_category_view);
-            $resource->saveAttribute($_category, 'category_position_custom');
+            if ($_category && $_category->getId())
+            {
+                $_category->setData('category_position_custom', $_category_view);
+                $resource->saveAttribute($_category, 'category_position_custom');
+            }
         }
         $this->clearCache();
     }
