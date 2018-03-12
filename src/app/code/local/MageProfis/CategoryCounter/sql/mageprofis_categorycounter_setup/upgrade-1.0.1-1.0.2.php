@@ -9,7 +9,7 @@ $installer->addAttribute('catalog_category', 'category_position_custom', array(
     'type' => 'int',
     'group' => 'Category sorting',
     'label' => 'Category sort position',
-    'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
+    'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_GLOBAL,
     'visible' => true,
     'required' => false,
     'used_in_product_listing' => true,
@@ -18,5 +18,3 @@ $installer->addAttribute('catalog_category', 'category_position_custom', array(
 ));
 
 $installer->endSetup();
-
-

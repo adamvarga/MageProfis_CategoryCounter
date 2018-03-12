@@ -13,11 +13,19 @@ $table = $installer->getConnection()
             'primary' => true,
                 ), 'Product Id')
         ->addColumn('views', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
+            'identity' => false,
+            'unsigned' => true,
+            'nullable' => false,
+            'primary' => false,
+                ), 'Views')
+        ->addColumn('created_at', Varien_Db_Ddl_Table::TYPE_DATETIME, null, array(
     'identity' => false,
     'unsigned' => true,
     'nullable' => false,
     'primary' => false,
-        ), 'Views');
+        ), 'Created At');
 $installer->getConnection()->createTable($table);
+
+$installer->run("ALTER TABLE mp_categorycounter_views drop primary key, add primary key(category_id, created_at);");
 
 $installer->endSetup();

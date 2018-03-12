@@ -2,7 +2,7 @@
 <config>
     <modules>
         <MageProfis_CategoryCounter>
-            <version>1.0.2</version>
+            <version>1.0.5</version>
         </MageProfis_CategoryCounter>
     </modules>
     <global>
